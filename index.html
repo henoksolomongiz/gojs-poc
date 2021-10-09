@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.0rc8/angular.min.js"
+		integrity="sha512-+UJX6g1/ffWapIGJuc/Vp18EVH+FlN4PZ5+YzV9v+PFhppSCc/7zsi/u5i6cAHVTlMp3XF2imIztIGI8Cs4dHg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/diagram.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" />
+
+	<script type="text/javascript" charset="utf-8"
+		src="http://rawgit.com/NorthwoodsSoftware/GoJS/master/release/go.js"></script>
+
+	<script type="text/javascript" charset="utf-8"
+		src="https://gojs.net/latest/extensions/DragCreatingTool.js"></script>
+
+</head>
+
+<body>
+	<h2>Diagram</h2>
+	<div ng-controller="DiagramController">
+
+		<div class="col-md-12">
+			<div id="sample">
+				<div id="myDiagramDiv"
+					style="background-color: white; border: solid 1px black; width: 100%;height: 400px"></div>
+				<button id="ToolEnabled" type="button" class="btn-primary" ng-click="toolEnabled()">Enable
+					Draw</button>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
