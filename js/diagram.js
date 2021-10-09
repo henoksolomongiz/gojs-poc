@@ -26,32 +26,36 @@ function DiagramController($scope) {
 				$(go.Shape,
 					{
 						figure: "RoundedRectangle",
-						fill: "lightblue",  width: 200, height: 200,
+						fill: "lightblue",  width: 200, height: 200 
 					}),
 				$(go.TextBlock,
 					{
-						text: "Box does not contain node",
+						text: "Box without node",
 						margin: 5
 					})
 			)
 		myDiagram.add(node1);
 
-		var node2 =
-			$(go.Node, "Auto",
-				$(go.Shape,
-					{
-						figure: "RoundedRectangle",
-						fill: "yellow", width: 200, height: 200,
-					}),
-				$(go.TextBlock,
-					{
-						text: "Box contain node",
-						margin: 5
-					})
-			);
-		myDiagram.add(node2);
-
-		myDiagram.toolManager.mouseMoveTools.insertAt(2,
+	 
+	  
+		myDiagram.groupTemplate =
+		$(go.Group, "Vertical",
+		  $(go.Panel, "Auto",
+			$(go.Shape, "RoundedRectangle",  
+			  { parameter1: 14,
+				fill: "yellow",  width: 200, height: 200  }),
+			$(go.Placeholder,    
+			  { padding: 5})  
+		  ),
+		  $(go.TextBlock,         // group title
+			{ alignment: go.Spot.Right, font: "Bold 12pt Sans-Serif" },
+			new go.Binding("text", "key"))
+		);
+		myDiagram.model.nodeDataArray = [
+			{ key: "Box with node",text: "Box with node", isGroup: true },
+		 	 	{ key: "NodeTypeA", group: "Box with node"}
+		  ];
+	 	myDiagram.toolManager.mouseMoveTools.insertAt(2,
 			$(DragCreatingTool,
 				{
 					isEnabled: false,
